@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="row">
+        <h4>Trámites</h4>
+        <div class="row col-md-12 p-6" *ngIf="currentUser?.rol === 'usuario'">
+            <div class="btn-group">
+                <button class="btn btn-primary" [routerLink]="['/nuevo-tramite']">
+          Generar Trámite
+        </button>
+            </div>
+        </div>
+        <div class="col-md-12 row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Usuario</th>
+                        <th>Funcionario</th>
+                        <th>Estado</th>
+                        <th *ngIf="currentUser.rol !== 'usuario'">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let t of tramites">
+                        <td>
+                            {{ t.nombre }}
+                        </td>
+                        <td>
+                            {{ t.personaRadico?.usuario.username ? t.personaRadico.usuario.username : "sin usuario" }}
+                        </td>
+                        <td>
+                            {{ t.funcionarioRecibio?.usuario.username ? t.funcionarioRecibio.email : "aun nadie recibe" }}
+                        </td>
+                        <td>{{ t.estado }}</td>
+                        <td *ngIf="currentUser.rol !== 'usuario'">
+                            <div class="row">
+                                <button *ngIf="t.estado === 'tomado'" class="btn btn-danger" (click)="delete(t)">
+                  Eliminar trámite
+                </button>
+                                <button *ngIf="t.estado === 'en espera'" class="btn btn-secundary" (click)="tomar(t)">
+                  Tomar trámite
+                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

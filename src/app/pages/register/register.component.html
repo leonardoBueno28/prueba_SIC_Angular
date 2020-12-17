@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row col-md-12" style="padding: 5%;">
+        <form [formGroup]="formData" style="width: 100%">
+            <div class="row col-md-12">
+                <div class="col-md-6 form-group">
+                    <label for="email"><b>Email</b></label>
+                    <input class="form-control" formControlName="username" type="text" placeholder="Correo electronico" name="email" required />
+                    <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+                        El correo es requerido
+                    </div>
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Password</b></label>
+                    <input class="form-control" formControlName="password" type="password" placeholder="Enter Password" name="psw" required />
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                        <div *ngIf="password.errors.required">
+                            La contraseña es requerida
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Rol</b></label>
+                    <input class="form-control" formControlName="rol" type="rol" placeholder="Enter rol" name="psw" required />
+                    <div *ngIf="rol.invalid && (rol.dirty || rol.touched)" class="alert alert-danger">
+                        <div *ngIf="rol.errors.required">El rol es requerido</div>
+                    </div>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Nombres</b></label>
+                    <input class="form-control" formControlName="nombres" type="text" placeholder="Enter nombres" name="nombres" required />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Apellidos</b></label>
+                    <input class="form-control" formControlName="apellidos" type="text" placeholder="Enter apellidos" name="apellidos" required />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Dirección</b></label>
+                    <input class="form-control" formControlName="direccion" type="text" placeholder="Enter direccion" name="direccion" required />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Identificación</b></label>
+                    <input class="form-control" formControlName="identificacion" type="text" placeholder="Enter identificacion" name="identificacion" required />
+                </div>
+
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Telefono</b></label>
+                    <input class="form-control" formControlName="telefono" type="text" placeholder="Enter telefono" name="telefono" required />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="psw"><b>Tipo de identificación</b></label>
+                    <input class="form-control" formControlName="tipo_identificacion" type="text" placeholder="Enter tipo identificacion" name="tipo_identificacion" required />
+                </div>
+            </div>
+
+            <div class="content-btn">
+                <button class="btn btn-primary" type="submit" (click)="registrar()">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row col-md-12">
+        <h2 class="text-center w-100">Generar Trámite</h2>
+        <form style="width: 100%" [formGroup]="formData">
+            <div class="row col-md-12">
+                <div class="col-md-6 form-group">
+                    <label for="numero">Radicado N°:</label>
+                    <input type="number" class="form-control" formControlName="numero" placeholder="0" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="anhoRadicacion">Año:</label>
+                    <input type="text" class="form-control" formControlName="anhoRadicacion" placeholder="2020" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="nombre">nombre:</label>
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="nombre ..." />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="descripcion">descripcion :</label>
+                    <textarea type="text" class="form-control" formControlName="descripcion" placeholder="descripcion..."></textarea>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="numero">estado :</label>
+                    <input type="text" class="form-control" formControlName="estado" placeholder="en espera" disabled />
+                </div>
+            </div>
+            <div class="row col-md-12">
+                <button class="btn btn-primary" (click)="generar()">Generar</button>
+            </div>
+        </form>
+    </div>
+</div>

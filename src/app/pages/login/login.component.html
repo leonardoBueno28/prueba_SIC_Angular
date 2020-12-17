@@ -1,0 +1,27 @@
+<div class="content">
+    <form class="form-content animate" [formGroup]="formData">
+        <div class="imgcontainer">
+            <img src="../../../assets/imagenes/user.png" alt="Avatar" class="avatar" />
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Email</b></label>
+            <input formControlName="email" type="text" placeholder="Correo electronico" name="email" required />
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                El correo es requerido
+            </div>
+            <label for="psw"><b>Password</b></label>
+            <input formControlName="password" type="password" placeholder="Enter Password" name="psw" required />
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+                <div *ngIf="password.errors.required">La contraseña es requerida</div>
+            </div>
+            <div class="content-btn">
+                <button type="submit" (click)="login()">Ingresar</button>
+            </div>
+        </div>
+
+        <div class="container" style="background-color: #f1f1f1; height: 6vh">
+            <span class="psw"><a [routerLink]="['/register']">Registrarme</a></span>
+        </div>
+    </form>
+</div>
